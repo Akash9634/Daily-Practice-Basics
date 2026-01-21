@@ -1,4 +1,4 @@
-// Q. Fibonacci series
+// Q. Fibonacci series - value of nth number is the sum of previous 2 numbers 
 
 import java.util.*;
 class Main {
