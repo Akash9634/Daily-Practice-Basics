@@ -99,14 +99,31 @@ public class Main {
       size++;
     }
 
-    // void addAtIndex(int idx){
-    //   if(size==0){
-    //     addFirst(idx);
-    //   }
-    //   for(int i=0; i<idx; i++){
+    void addAtIndex(int idx, int val){
+      if(idx>size || idx<0){
+        System.out.println("invalid operation");
+      }
+      else if(idx==0){
+        addFirst(val);
+      }
+      else if(idx==size){
+        addLast(val);
+      }
+      else{
+        Node newNode = new Node();
+        newNode.data = val;
+        Node temp = head;
+        //traverse to the previous node of the index we want to add on
+        for(int i=0; i<idx-1; i++){
+          temp = temp.next;
+        }
+        newNode.next = temp.next; // newNode points to where temp is pointing 
+        temp.next = newNode; // now temp will start pointing to newNode
+        size++;
+      }
 
-    //   }
-    // }
+      
+    }
 
   }
 
@@ -137,10 +154,15 @@ public class Main {
 
     ll.size();
 
+    ll.addAtIndex(2, 45 );
+    System.out.println();
+    System.out.println();
+
+    ll.display();
+
    
     // System.out.println("done");
 
   }
 
 }
-
