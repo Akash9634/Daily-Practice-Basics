@@ -183,6 +183,26 @@ public class Main {
     tail = temp;
    }
 
+   void removeAt(int idx){
+    if(idx<0 || idx >=size){
+      System.out.println("invalid operation");
+    }
+    else if(idx==0){
+      removeFirst();
+    }
+    else if(idx==size-1){
+      removeLast();
+    }
+    else{
+      Node temp = head;
+      for(int i=0; i<idx-1; i++){
+        temp=temp.next;
+      }
+      temp.next = temp.next.next;
+      size--;
+    }
+   }
+
   }
 
   public static void main(String[] args) {
@@ -231,7 +251,8 @@ public class Main {
     // System.out.println();
     // System.out.println();
 
-    ll.reverseLinkedListPointer();
+    // ll.reverseLinkedListPointer();
+    ll.removeAt(1);
     ll.display();
 
 
